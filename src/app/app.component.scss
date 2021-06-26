@@ -21,4 +21,13 @@
   left: 0;
   box-shadow: -1px 1px 5px rgba(#333, 0.2);
   border-radius: 3px;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+
+  app-sidebar {
+    flex-basis: 30%;
+    display: block;
+    height: 100%;
+  }
 }

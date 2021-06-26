@@ -1,0 +1,138 @@
+#sidebar {
+  width: 100%;
+  height: 100%;
+  border-right: 1px solid #e1e4e5;
+  display: flex;
+  flex-direction: column;
+
+  #row1 {
+    display: flex;
+    flex-direction: column;
+    #sidebar-header {
+      flex-basis: 67px;
+      background-color: #eeeeee;
+      display: flex;
+      align-items: center;
+      padding-left: 20px;
+      padding-right: 20px;
+      justify-content: space-between;
+
+      .avatar-container {
+        flex-basis: 43px;
+        height: 43px;
+
+        img {
+          height: 100%;
+        }
+      }
+
+      .actions-container {
+        // flex-grow: 1;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        width: 110px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    #search-box {
+      flex-basis: 50px;
+      background-color: #fbfbfb;
+      border-bottom: 1px solid #e1e4e5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        position: absolute;
+        left: 30px;
+      }
+
+      input {
+        width: calc(90% - 60px);
+        border: none;
+        border-radius: 20px;
+        height: 70%;
+        padding-left: 60px;
+        color: #a4a4a4;
+        outline: none;
+        box-shadow: 0px 0px 3px #efefef;
+        &::placeholder {
+          color: #a4a4a4;
+          font-weight: 100;
+        }
+      }
+    }
+  }
+
+  #sidebar-content {
+    flex-grow: 1;
+    overflow: auto;
+    #no-conversations {
+      padding-top: 30px;
+      text-align: center;
+      color: #b9b9b9;
+      font-size: 18px;
+      font-weight: 100;
+    }
+
+    .conversation {
+      height: 67px;
+      display: flex;
+      padding-right: 5px;
+      transition: all 0.4s ease-in-out;
+      cursor: pointer;
+      &:hover {
+        background-color: rgba(#ccc, 0.05);
+      }
+
+      .picture {
+        flex-basis: 73px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+
+        img {
+          width: 48px;
+        }
+      }
+
+      .content {
+        flex-grow: 1;
+        border-bottom: 1px solid #f2f2f2;
+        padding: 15px 0;
+
+        .conversation-header {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+
+          .name {
+            color: #040404;
+          }
+
+          .time {
+            color: #979797;
+            font-size: 13px;
+            padding-top: 2px;
+          }
+        }
+
+        .message {
+          color: #717171;
+          font-size: 13px;
+          padding-top: 5px;
+          display: flex;
+          align-items: center;
+
+          img {
+            margin-right: 5px;
+          }
+        }
+      }
+    }
+  }
+}
