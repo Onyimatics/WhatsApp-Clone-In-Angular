@@ -8,6 +8,7 @@ import {Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core'
 export class SidebarComponent implements OnInit, OnDestroy {
 
   @Output() ConversationClicked: EventEmitter<any> = new EventEmitter();
+  public searchText: string = '';
 
   conversations = [
     {
@@ -183,6 +184,17 @@ export class SidebarComponent implements OnInit, OnDestroy {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  get filteredConversation() {
+    return this.conversations.filter((conversation) => {
+      return conversation?.name
+        .toLocaleLowerCase()
+        .includes(this.searchText.toLocaleLowerCase()) ||
+        conversation?.latestMessage
+          .toLocaleLowerCase()
+          .includes(this.searchText.toLocaleLowerCase());
+    })
   }
 
   ngOnDestroy() {}

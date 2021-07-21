@@ -1,12 +1,39 @@
 <div id="container">
-  <div id="header"></div>
-  <div id="body"></div>
+  <div id="header">
+    <div class="avatar-section">
+      <div class="picture">
+        <img src="../../assets/images/noPic.svg" alt="Avatar">
+      </div>
+      <div class="name-section">Onyii</div>
+    </div>
+    <div class="action-buttons">
+      <img src="../../assets/images/attached.svg" alt="Attachment Icon">
+      <img src="../../assets/images/moreVertIcon.svg" alt="Status Icon">
+    </div>
+  </div>
+  <div id="body">
+    <div class="message" [ngClass]="{me: message.me}" *ngFor="let message of conversation?.messages">
+        <div class="message-content">
+          {{ message?.body }}
+          <div class="time">{{ message?.time }}</div>
+        </div>
+    </div>
+  </div>
   <div id="footer">
     <div id="smiley-icon">
-      <img src="../../assets/images/smileIcon.svg" alt="Smiley Icon" />
+      <img (click)="emojiPickerVisible = !emojiPickerVisible" src="../../assets/images/smileIcon.svg" alt="Smiley Icon" />
+      <emoji-mart
+        id="emoji"
+        *ngIf="emojiPickerVisible"
+        [style]="{ position: 'absolute', bottom: '50px' }"
+        [darkMode]="false"
+        (emojiClick)="addEmoji($event)"
+        title="Pick your emoji…"
+        emoji="point_up">
+      </emoji-mart>
     </div>
     <div id="textarea">
-      <textarea></textarea>
+      <textarea [(ngModel)]="message" (keyup.enter)="submitMessage($event)"></textarea>
     </div>
     <div id="mic-icon">
       <img src="../../assets/images/voiceIcon.svg" alt="Mic Icon" />

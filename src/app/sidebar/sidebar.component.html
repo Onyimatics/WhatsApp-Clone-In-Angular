@@ -10,13 +10,13 @@
     </div>
     <div id="search-box">
       <img width="19px" src="../../assets/images/searchIcon.svg" alt="Search Icon" />
-      <input type="text" placeholder="Search or start the new chat" />
+      <input [(ngModel)]="searchText" type="text" placeholder="Search or start the new chat" />
     </div>
   </div>
 
   <div id="sidebar-content">
     <!-- <div id="no-conversations"> All chats are archived</div> -->
-    <div class="conversation" *ngFor="let conversation of conversations"
+    <div class="conversation" *ngFor="let conversation of searchText ? filteredConversation : conversations"
          (click)="ConversationClicked.emit(conversation)"
     >
       <div class="picture">
