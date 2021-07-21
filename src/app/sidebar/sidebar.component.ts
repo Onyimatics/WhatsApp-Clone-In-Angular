@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-sidebar',
@@ -6,6 +6,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit, OnDestroy {
+
+  @Output() ConversationClicked: EventEmitter<any> = new EventEmitter();
 
   conversations = [
     {

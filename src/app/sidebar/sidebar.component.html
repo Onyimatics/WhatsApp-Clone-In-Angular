@@ -13,10 +13,12 @@
       <input type="text" placeholder="Search or start the new chat" />
     </div>
   </div>
- 
+
   <div id="sidebar-content">
     <!-- <div id="no-conversations"> All chats are archived</div> -->
-    <div class="conversation" *ngFor="let conversation of conversations">
+    <div class="conversation" *ngFor="let conversation of conversations"
+         (click)="ConversationClicked.emit(conversation)"
+    >
       <div class="picture">
         <img src="../../assets/images/noPic.svg" alt="Avatar" />
       </div>
